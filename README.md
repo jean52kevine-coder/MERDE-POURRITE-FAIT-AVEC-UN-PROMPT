@@ -1,0 +1,1 @@
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/jean52kevine-coder/MERDE-POURRITE-FAIT-AVEC-UN-PROMPT?utm_source=oss&utm_medium=github&utm_campaign=jean52kevine-coder%2FMERDE-POURRITE-FAIT-AVEC-UN-PROMPT&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
