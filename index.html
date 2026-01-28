@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ALTÉRA - Agence digitale premium. Création de sites web d'exception, développement sur mesure et identité visuelle haut de gamme.">
+    <title>ALTÉRA - Agence Digitale Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="background"></canvas>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">ALTÉRA</a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="tarifs.html" class="nav-link">Tarifs</a></li>
+                        <li><a href="agence.html" class="nav-link">Agence</a></li>
+                        <li><a href="contact.html" class="nav-link nav-link-cta">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">L'excellence digitale<br>à portée de main</h1>
+                    <p class="hero-subtitle">Des sites web qui transforment votre vision en réalité</p>
+                    <div class="hero-cta">
+                        <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+                        <a href="services.html" class="btn btn-secondary">Découvrir nos services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Expertise</span>
+                    <h2 class="section-title">Ce que nous faisons</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M6 18H42" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="14" r="1" fill="currentColor"/>
+                                <circle cx="16" cy="14" r="1" fill="currentColor"/>
+                                <circle cx="20" cy="14" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Création de sites web</h3>
+                        <p class="service-description">Sites vitrines et e-commerce sur mesure. Design unique, performance optimale.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 6L26.5 20.5L38 12L30 24L44 26.5L30 29L38 41L26.5 33L24 47.5L21.5 33L10 41L18 29L4 26.5L18 24L10 12L21.5 20.5L24 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Identité visuelle</h3>
+                        <p class="service-description">Logo, charte graphique, branding complet. Votre marque sublimée.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 20L22 26L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Développement sur mesure</h3>
+                        <p class="service-description">Solutions web avancées. Fonctionnalités personnalisées à vos besoins.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 8V24L32 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Maintenance premium</h3>
+                        <p class="service-description">Support continu, mises à jour, sécurité. Votre site toujours performant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-altera">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Différence</span>
+                    <h2 class="section-title">Pourquoi ALTÉRA</h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-number">01</div>
+                        <h3 class="why-title">Expertise locale</h3>
+                        <p class="why-description">Basés près de chez vous. Disponibilité, réactivité, proximité.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">02</div>
+                        <h3 class="why-title">Design d'exception</h3>
+                        <p class="why-description">Chaque projet est unique. Zéro templates, 100% sur mesure.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">03</div>
+                        <h3 class="why-title">Code premium</h3>
+                        <p class="why-description">Performance, sécurité, évolutivité. Développement de niveau expert.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">04</div>
+                        <h3 class="why-title">Support illimité</h3>
+                        <p class="why-description">Toujours disponibles. Maintenance proactive, pas réactive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Méthode</span>
+                    <h2 class="section-title">Processus de création</h2>
+                    <p class="section-description">Une approche structurée par des experts. Totalement personnalisée.</p>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <div class="process-step-content">
+                            <h3 class="process-step-title">Analyse</h3>
+                            <p class="process-step-description">Compréhension approfondie de vos objectifs, votre marché, votre audience.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <div class="process-step-content">
+                            <h3 class="process-step-title">Stratégie</h3>
+                            <p class="process-step-description">Architecture, maquettes, parcours utilisateur. Design validé ensemble.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <div class="process-step-content">
+                            <h3 class="process-step-title">Développement</h3>
+                            <p class="process-step-description">Code propre, optimisé, évolutif. Tests rigoureux à chaque étape.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <div class="process-step-content">
+                            <h3 class="process-step-title">Lancement</h3>
+                            <p class="process-step-description">Mise en ligne optimisée. Formation complète, documentation fournie.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">5</div>
+                        <div class="process-step-content">
+                            <h3 class="process-step-title">Évolution</h3>
+                            <p class="process-step-description">Maintenance continue, améliorations, évolutions selon vos besoins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="offers-preview">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Offres</span>
+                    <h2 class="section-title">Nos formules</h2>
+                    <p class="section-description">Trois niveaux d'excellence. Un seul standard : la qualité.</p>
+                </div>
+                <div class="offers-table-wrapper">
+                    <table class="offers-table">
+                        <thead>
+                            <tr>
+                                <th class="offers-table-feature">Caractéristiques</th>
+                                <th class="offers-table-offer">Essentiel</th>
+                                <th class="offers-table-offer offers-table-offer-featured">Premium</th>
+                                <th class="offers-table-offer">Elite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="offers-table-feature-name">Pages incluses</td>
+                                <td>5 pages</td>
+                                <td class="featured">10 pages</td>
+                                <td>Illimité</td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Design personnalisé</td>
+                                <td><span class="check">✓</span></td>
+                                <td class="featured"><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Responsive mobile</td>
+                                <td><span class="check">✓</span></td>
+                                <td class="featured"><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Optimisation SEO</td>
+                                <td>Base</td>
+                                <td class="featured">Avancée</td>
+                                <td>Expert</td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Animations</td>
+                                <td>Standard</td>
+                                <td class="featured">Avancées</td>
+                                <td>Premium</td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Intégrations</td>
+                                <td>2 incluses</td>
+                                <td class="featured">5 incluses</td>
+                                <td>Illimitées</td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Formation</td>
+                                <td>1h</td>
+                                <td class="featured">3h</td>
+                                <td>Complète</td>
+                            </tr>
+                            <tr>
+                                <td class="offers-table-feature-name">Support</td>
+                                <td>30 jours</td>
+                                <td class="featured">90 jours</td>
+                                <td>1 an</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="offers-cta">
+                    <a href="tarifs.html" class="btn btn-primary">Voir tous les tarifs</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="maintenance-value">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Protection</span>
+                    <h2 class="section-title">La valeur de la maintenance</h2>
+                    <p class="section-description">Votre site est un investissement. Protégez-le.</p>
+                </div>
+                <div class="maintenance-grid">
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 5L23 15H33L25 21L28 31L20 25L12 31L15 21L7 15H17L20 5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Mises à jour régulières</h3>
+                        <p class="maintenance-description">Technologies à jour. Compatibilité garantie. Zéro obsolescence.</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="12" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14 12V10C14 7.79086 15.7909 6 18 6H22C24.2091 6 26 7.79086 26 10V12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Sécurité renforcée</h3>
+                        <p class="maintenance-description">Protection active. Surveillance 24/7. Sauvegardes automatiques.</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 8L28 14V26L20 32L12 26V14L20 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M16 20L19 23L25 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Performance optimale</h3>
+                        <p class="maintenance-description">Vitesse maintenue. Monitoring constant. Corrections proactives.</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="2"/>
+                                <path d="M15 20L18 23L25 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Support prioritaire</h3>
+                        <p class="maintenance-description">Réponse rapide. Interventions immédiates. Disponibilité garantie.</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M10 25L20 30L30 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 20L20 25L30 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 15L20 20L30 15L20 10L10 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Sauvegardes automatiques</h3>
+                        <p class="maintenance-description">Données protégées. Restauration rapide. Sérénité totale.</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M8 20H15M25 20H32M20 8V15M20 25V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="maintenance-title">Évolutions incluses</h3>
+                        <p class="maintenance-description">Petites modifications. Ajustements rapides. Site toujours à jour.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Prêt à créer quelque chose d'exceptionnel ?</h2>
+                    <p class="cta-description">Discutons de votre projet. Sans engagement, sans complexité.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-large">Démarrer maintenant</a>
+                        <a href="tarifs.html" class="btn btn-secondary btn-large">Voir les tarifs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">ALTÉRA</div>
+                        <p class="footer-tagline">L'excellence digitale à portée de main</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 class="footer-column-title">Navigation</h4>
+                            <ul class="footer-list">
+                                <li><a href="index.html">Accueil</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="tarifs.html">Tarifs</a></li>
+                                <li><a href="agence.html">Agence</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4 class="footer-column-title">Services</h4>
+                            <ul class="footer-list">
+                                <li><a href="services.html#creation">Création web</a></li>
+                                <li><a href="services.html#identite">Identité visuelle</a></li>
+                                <li><a href="services.html#developpement">Développement</a></li>
+                                <li><a href="services.html#maintenance">Maintenance</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4 class="footer-column-title">Contact</h4>
+                            <ul class="footer-list">
+                                <li><a href="mailto:contact@altera-agency.fr">contact@altera-agency.fr</a></li>
+                                <li><a href="tel:+33123456789">+33 1 23 45 67 89</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">&copy; 2024 ALTÉRA. Tous droits réservés.</p>
+                    <div class="footer-legal">
+                        <a href="#">Mentions légales</a>
+                        <a href="#">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

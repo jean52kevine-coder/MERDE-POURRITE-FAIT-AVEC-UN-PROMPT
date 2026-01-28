@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez ALTERA, l’agence digitale premium en avance sur son temps.">
+  <title>Contact — ALTERA</title>
+  <style>
+    /* ------------------------------
+       VARIABLES & BASE
+    ------------------------------ */
+    :root {
+      --noir: #0b0b0f;
+      --blanc: #ffffff;
+      --violet: #9b5cff;
+      --bleu: #00baff;
+      --font: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--noir);
+      color: var(--blanc);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    canvas#background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--blanc);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--violet);
+    }
+
+    /* ------------------------------
+       HEADER
+    ------------------------------ */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11, 11, 15, 0.7);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--violet);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav a {
+      position: relative;
+      font-weight: 500;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--violet), var(--bleu));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ------------------------------
+       CONTACT SECTION
+    ------------------------------ */
+    main {
+      padding-top: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      width: 90%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      backdrop-filter: blur(15px);
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(155, 92, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-container:hover {
+      box-shadow: 0 0 30px rgba(0, 186, 255, 0.15);
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--violet), var(--bleu));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: var(--blanc);
+      font-size: 1em;
+      outline: none;
+      transition: all 0.3s ease;
+      resize: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 10px rgba(155,92,255,0.3);
+    }
+
+    button {
+      background: linear-gradient(90deg, var(--violet), var(--bleu));
+      color: var(--blanc);
+      font-weight: 600;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,186,255,0.3);
+    }
+
+    /* ------------------------------
+       FOOTER
+    ------------------------------ */
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    footer span {
+      color: var(--violet);
+    }
+
+    /* ------------------------------
+       RESPONSIVE
+    ------------------------------ */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .contact-container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fond animé -->
+  <canvas id="background"></canvas>
+
+  <!-- HEADER GLOBAL -->
+  <header>
+    <div class="logo">ALTERA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="agence.html">Agence</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECTION CONTACT -->
+  <main>
+    <div class="contact-container">
+      <h1>Contactez-nous</h1>
+      <p class="subtitle">Vous avez un projet ambitieux ? Parlons-en ensemble.</p>
+      <form autocomplete="off">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre e-mail" required>
+        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER GLOBAL -->
+  <footer>
+    © <span>ALTERA</span> — Agence digitale premium
+  </footer>
+
+  <!-- SCRIPT ANIMATION FOND -->
+  <script>
+    const canvas = document.getElementById('background');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    let shootingStars = [];
+    let w, h;
+
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 120; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.2,
+        d: Math.random() * 0.2
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(255,255,255,0.8)";
+      ctx.beginPath();
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        ctx.moveTo(s.x, s.y);
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      moveStars();
+      handleShootingStars();
+    }
+
+    function moveStars() {
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        s.y += s.d;
+        if (s.y > h) {
+          s.y = 0;
+          s.x = Math.random() * w;
+        }
+      }
+    }
+
+    function createShootingStar() {
+      const s = {
+        x: Math.random() * w,
+        y: 0,
+        length: Math.random() * 80 + 50,
+        speed: Math.random() * 10 + 6,
+        angle: Math.PI / 4,
+        opacity: 1
+      };
+      shootingStars.push(s);
+    }
+
+    function handleShootingStars() {
+      for (let i = 0; i < shootingStars.length; i++) {
+        const s = shootingStars[i];
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.length * Math.cos(s.angle), s.y - s.length * Math.sin(s.angle));
+        ctx.strokeStyle = `rgba(155,92,255,${s.opacity})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        s.x += s.speed * Math.cos(s.angle);
+        s.y += s.speed * Math.sin(s.angle);
+        s.opacity -= 0.01;
+      }
+      shootingStars = shootingStars.filter(s => s.opacity > 0);
+      if (Math.random() < 0.01) createShootingStar();
+    }
+
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

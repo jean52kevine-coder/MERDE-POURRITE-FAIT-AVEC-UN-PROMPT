@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ALTERA - Découvrez notre vision, notre philosophie et ce qui nous différencie des agences digitales classiques.">
+    <meta name="keywords" content="agence digitale, vision, philosophie, ALTERA, digital premium">
+    <title>Agence | ALTERA - Vision & Philosophie</title>
+    
+    <style>
+        /* ========================================
+           VARIABLES & RESET
+        ======================================== */
+        :root {
+            --color-dark: #0b0b0f;
+            --color-white: #ffffff;
+            --color-violet: #8b5cf6;
+            --color-blue: #3b82f6;
+            --color-neon: #06b6d4;
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Poppins', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--color-dark);
+            color: var(--color-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* ========================================
+           BACKGROUND ANIMÉ
+        ======================================== */
+        #canvas-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ========================================
+           HEADER
+        ======================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            background: rgba(11, 11, 15, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(11, 11, 15, 0.95);
+            padding: 1rem 5%;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            letter-spacing: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-violet), var(--color-neon));
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--color-neon);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--color-violet);
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-white);
+            transition: var(--transition);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-white), var(--color-violet), var(--color-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-violet), transparent);
+            margin: 3rem auto;
+        }
+
+        /* ========================================
+           SECTIONS
+        ======================================== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-white), var(--color-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-neon);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .content-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .content-block:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .content-block h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .content-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .content-block strong {
+            color: var(--color-violet);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           VALEURS GRID
+        ======================================== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .value-card:hover::before {
+            left: 100%;
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--color-violet);
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        .value-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-blue));
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-blue), var(--color-neon));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            background: rgba(11, 11, 15, 0.8);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer .brand {
+            color: var(--color-violet);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(11, 11, 15, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 6rem 2rem 2rem;
+                transition: var(--transition);
+                border-left: 1px solid rgba(139, 92, 246, 0.3);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .content-block {
+                padding: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .hero {
+                padding: 6rem 5% 3rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .value-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background animé -->
+    <canvas id="canvas-background"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">ALTERA</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="agence.html" class="active">Agence</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Qui sommes-nous ?</h1>
+            <p class="subtitle">L'agence qui repousse les limites du digital premium</p>
+            <div class="divider"></div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section>
+        <h2 class="section-subtitle">Notre Vision</h2>
+        <div class="content-block">
+            <h3>En avance sur son temps</h3>
+            <p>
+                ALTERA n'est pas une agence digitale comme les autres. Nous ne suivons pas les tendances — <strong>nous les créons</strong>. 
+                Notre vision est simple : bâtir des expériences digitales qui marquent, des identités qui dominent, et des stratégies qui performent.
+            </p>
+            <p>
+                Dans un monde saturé d'agences moyennes qui livrent des sites standards, nous avons choisi <strong>l'excellence</strong>. 
+                Chaque projet est pensé comme une œuvre, conçu avec précision, développé avec rigueur. 
+                Nous croyons que votre présence digitale ne doit pas simplement exister — elle doit <strong>imposer le respect</strong>.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h3>Le futur du digital, aujourd'hui</h3>
+            <p>
+                Pendant que d'autres agences reproduisent les mêmes recettes, nous explorons les technologies émergentes, 
+                les nouvelles formes de narration visuelle, et les standards de demain. 
+                Nous ne livrons pas des sites "à la mode" — nous livrons des <strong>actifs digitaux durables</strong>, 
+                pensés pour durer, évoluer et surpasser la concurrence.
+            </p>
+            <p>
+                Notre approche repose sur trois piliers : <strong>innovation technique</strong>, <strong>esthétique de pointe</strong> 
+                et <strong>stratégie orientée résultats</strong>. Nous ne faisons pas de compromis.
+            </p>
+        </div>
+    </section>
+
+    <!-- Philosophie Section -->
+    <section>
+        <h2 class="section-subtitle">Notre Philosophie</h2>
+        <div class="content-block">
+            <h3>Pas de médiocrité. Pas d'excuses.</h3>
+            <p>
+                Nous refusons la médiocrité. Chaque ligne de code, chaque pixel, chaque animation est pensé pour servir un objectif : 
+                <strong>vous démarquer radicalement de vos concurrents</strong>.
+            </p>
+            <p>
+                Nous ne travaillons qu'avec des clients qui partagent cette ambition. Si vous cherchez du cheap, du rapide, du basique — 
+                ce n'est pas ici. Mais si vous voulez <strong>dominer votre marché</strong> avec une présence digitale inoubliable, 
+                alors vous êtes au bon endroit.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h3>Transparence & exigence</h3>
+            <p>
+                Nous sommes directs. Nous disons ce qui doit être dit. Si votre projet a besoin d'ajustements stratégiques, 
+                nous vous le dirons. Si votre vision mérite d'être challengée pour devenir meilleure, nous le ferons.
+            </p>
+            <p>
+                En échange, nous vous offrons <strong>notre expertise sans filtre</strong>, notre engagement total, et une qualité de livraison 
+                qui dépasse vos attentes. Nous ne sommes pas juste des exécutants — nous sommes vos <strong>partenaires stratégiques</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Différence Section -->
+    <section>
+        <h2 class="section-subtitle">Ce qui nous différencie</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">01</div>
+                <h4>Code sur mesure</h4>
+                <p>
+                    Pas de templates. Pas de thèmes WordPress génériques. 
+                    Chaque site est construit from scratch, optimisé pour la vitesse et la performance.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">02</div>
+                <h4>Design premium</h4>
+                <p>
+                    Nos créations ne ressemblent à rien d'autre. Futuristes, audacieuses, mémorables. 
+                    Votre identité digitale devient votre meilleur argument commercial.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">03</div>
+                <h4>Stratégie orientée ROI</h4>
+                <p>
+                    Un beau site qui ne convertit pas ne vaut rien. 
+                    Nous concevons chaque projet avec un objectif : générer des résultats mesurables.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">04</div>
+                <h4>Accompagnement élite</h4>
+                <p>
+                    Nous ne disparaissons pas après la livraison. 
+                    Nous restons à vos côtés pour faire évoluer, améliorer et dominer.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">05</div>
+                <h4>Technologie de pointe</h4>
+                <p>
+                    Nous utilisons les standards les plus modernes, 
+                    les animations les plus fluides, les architectures les plus performantes.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">06</div>
+                <h4>Zéro compromis</h4>
+                <p>
+                    Nous ne livrons que ce qui atteint nos standards d'excellence. 
+                    Pas de rush, pas de bâclé. Que du premium.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à rejoindre l'élite ?</h2>
+        <p>Travaillons ensemble pour bâtir votre présence digitale de demain.</p>
+        <a href="contact.html" class="cta-button">Discutons de votre projet</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 <span class="brand">ALTERA</span> — Tous droits réservés</p>
+        <p>Agence digitale premium</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========================================
+        // BACKGROUND ANIMÉ (Canvas)
+        // ========================================
+        const canvas = document.getElementById('canvas-background');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Particules (étoiles fixes et mobiles)
+        const particles = [];
+        const particleCount = 150;
+
+        // Étoiles filantes
+        const shootingStars = [];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height * 0.5;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 8 + 8;
+                this.opacity = 1;
+                this.angle = Math.PI / 4;
+            }
+
+            update() {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.opacity -= 0.015;
+
+                if (this.opacity <= 0) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.strokeStyle = `rgba(6, 182, 212, ${this.opacity})`;
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(6, 182, 212, 0.8)';
+                
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Initialisation
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        for (let i = 0; i < 3; i++) {
+            shootingStars.push(new ShootingStar());
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            shootingStars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // ========================================
+        // MENU MOBILE
+        // ========================================
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>

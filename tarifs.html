@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tarifs et offres d'ALTERA - Agence digitale premium. Sites web haut de gamme, refonte digitale et solutions sur mesure pour entreprises ambitieuses.">
+    <meta name="keywords" content="tarifs site web premium, agence digitale prix, création site haut de gamme">
+    <title>Tarifs — ALTERA | Agence Digitale Premium</title>
+    <style>
+        /* ============================================
+           VARIABLES & RESET
+        ============================================ */
+        :root {
+            --color-dark: #0b0b0f;
+            --color-white: #ffffff;
+            --color-violet: #8b5cf6;
+            --color-blue: #3b82f6;
+            --color-cyan: #06b6d4;
+            --color-gray: #9ca3af;
+            --color-gray-dark: #1f2937;
+            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Satoshi', 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* ============================================
+           BACKGROUND ANIMÉ
+        ============================================ */
+        #animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--color-white);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-cyan), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: shoot 3s linear;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes shoot {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-300px, 300px);
+            }
+        }
+
+        /* ============================================
+           HEADER
+        ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            background: rgba(11, 11, 15, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: brightness(1.2);
+            letter-spacing: 0.1em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-violet), var(--color-cyan));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-cyan);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--color-violet);
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-white);
+            transition: all 0.3s ease;
+        }
+
+        /* ============================================
+           MAIN CONTENT
+        ============================================ */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ============================================
+           HERO SECTION TARIFS
+        ============================================ */
+        .hero-tarifs {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero-tarifs h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--color-white), var(--color-violet), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-tarifs .subtitle {
+            font-size: 1.3rem;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-tarifs .highlight {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--color-violet);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-violet);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        /* ============================================
+           PRICING CARDS
+        ============================================ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.5), rgba(11, 11, 15, 0.8));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-violet);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1));
+            border: 2px solid var(--color-violet);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::after {
+            content: 'POPULAIRE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+            color: var(--color-white);
+            padding: 5px 45px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+            letter-spacing: 0.02em;
+        }
+
+        .plan-tagline {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+            min-height: 40px;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--color-gray);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--color-cyan);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .btn-pricing {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-blue));
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-pricing:hover::before {
+            left: 100%;
+        }
+
+        .btn-pricing:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .pricing-card.featured .btn-pricing {
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-violet));
+            font-size: 1.1rem;
+            padding: 1.2rem 2rem;
+        }
+
+        /* ============================================
+           FAQ / COMPARAISON
+        ============================================ */
+        .section-comparison {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-comparison h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-white), var(--color-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-comparison p {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .comparison-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(31, 41, 55, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-label {
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .comparison-value {
+            color: var(--color-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           CTA FINAL
+        ============================================ */
+        .cta-final {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.05));
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .cta-final h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-white), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-final p {
+            font-size: 1.2rem;
+            color: var(--color-gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid var(--color-violet);
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            text-align: center;
+            background: rgba(11, 11, 15, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-copyright {
+            color: var(--color-gray);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .hero-tarifs h1 {
+                font-size: 3rem;
+            }
+
+            .cta-final h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(11, 11, 15, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(139, 92, 246, 0.3);
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-tarifs h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tarifs .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .price {
+                font-size: 2.8rem;
+            }
+
+            .cta-final h2 {
+                font-size: 2rem;
+            }
+
+            .cta-final p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .comparison-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero-tarifs {
+                padding: 4rem 0 2rem;
+            }
+
+            .hero-tarifs h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .btn-cta, .btn-secondary {
+                width: 100%;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background animé -->
+    <div id="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">ALTERA</a>
+            <nav>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="navMenu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="agence.html">Agence</a></li>
+                    <li><a href="tarifs.html" class="active">Tarifs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-tarifs">
+            <div class="container">
+                <div class="highlight">Investissement — Pas une dépense</div>
+                <h1>Des offres à la hauteur de votre ambition</h1>
+                <p class="subtitle">
+                    Chaque projet est unique. Nos offres sont conçues pour vous propulser, 
+                    pas pour vous limiter. Choisissez votre niveau d'excellence.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pricing Cards -->
+        <section class="container">
+            <div class="pricing-grid">
+                <!-- Essentiel -->
+                <div class="pricing-card">
+                    <div class="card-content">
+                        <h3 class="plan-name">Essentiel</h3>
+                        <p class="plan-tagline">Pour établir votre présence digitale avec style</p>
+                        <div class="price">2 490€</div>
+                        <p class="price-period">Projet unique</p>
+                        <ul class="features-list">
+                            <li>Site vitrine 5 pages</li>
+                            <li>Design moderne & responsive</li>
+                            <li>Optimisation SEO de base</li>
+                            <li>Performance & rapidité</li>
+                            <li>Formulaire de contact</li>
+                            <li>Compatible tous appareils</li>
+                            <li>Livraison en 3 semaines</li>
+                            <li>Support 30 jours</li>
+                        </ul>
+                        <a href="contact.html" class="btn-pricing">Choisir Essentiel</a>
+                    </div>
+                </div>
+
+                <!-- Premium (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="card-content">
+                        <h3 class="plan-name">Premium</h3>
+                        <p class="plan-tagline">L'excellence digitale pour dominer votre marché</p>
+                        <div class="price">4 990€</div>
+                        <p class="price-period">Projet unique</p>
+                        <ul class="features-list">
+                            <li>Site sur mesure illimité</li>
+                            <li>Design premium exclusif</li>
+                            <li>Animations & interactions avancées</li>
+                            <li>SEO avancé & stratégie</li>
+                            <li>Intégrations personnalisées</li>
+                            <li>Système de contenu dynamique</li>
+                            <li>Optimisation conversion</li>
+                            <li>Formation complète</li>
+                            <li>Support 90 jours</li>
+                            <li>Maintenance 3 mois offerte</li>
+                        </ul>
+                        <a href="contact.html" class="btn-pricing">Choisir Premium</a>
+                    </div>
+                </div>
+
+                <!-- Elite -->
+                <div class="pricing-card">
+                    <div class="card-content">
+                        <h3 class="plan-name">Elite</h3>
+                        <p class="plan-tagline">L'expérience totale pour les leaders visionnaires</p>
+                        <div class="price">Sur devis</div>
+                        <p class="price-period">Solution complète</p>
+                        <ul class="features-list">
+                            <li>Tout de Premium inclus</li>
+                            <li>Plateforme multi-pages complexe</li>
+                            <li>Développements sur mesure</li>
+                            <li>Espace client / Dashboard</li>
+                            <li>Automatisations avancées</li>
+                            <li>Intégrations API tierces</li>
+                            <li>Stratégie digitale complète</li>
+                            <li>Branding & identité visuelle</li>
+                            <li>Suivi analytique avancé</li>
+                            <li>Support prioritaire illimité</li>
+                            <li>Maintenance continue</li>
+                        </ul>
+                        <a href="contact.html" class="btn-pricing">Discuter du projet</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="section-comparison">
+            <div class="container">
+                <h2>Ce qui est inclus dans chaque offre</h2>
+                <p>
+                    Transparence totale. Aucun frais caché. Seulement de la valeur pure 
+                    pour transformer votre présence digitale en avantage compétitif.
+                </p>
+                <div class="comparison-table">
+                    <div class="comparison-row">
+                        <span class="comparison-label">Hébergement première année</span>
+                        <span class="comparison-value">Inclus dans toutes les offres</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Nom de domaine</span>
+                        <span class="comparison-value">Inclus (ou transfert gratuit)</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Certificat SSL (sécurité HTTPS)</span>
+                        <span class="comparison-value">Inclus & configuré</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Responsive design</span>
+                        <span class="comparison-value">Garanti sur tous appareils</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Optimisation vitesse</span>
+                        <span class="comparison-value">Performance maximale garantie</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Révisions incluses</span>
+                        <span class="comparison-value">2 à 5 selon l'offre</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span class="comparison-label">Délai moyen de livraison</span>
+                        <span class="comparison-value">3 à 8 semaines selon complexité</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="container">
+            <div class="cta-final">
+                <h2>Prêt à passer au niveau supérieur ?</h2>
+                <p>
+                    Ne laissez pas votre concurrent prendre l'avantage. 
+                    Chaque jour sans présence premium est une opportunité perdue.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-cta">Demander un devis</a>
+                    <a href="agence.html" class="btn-secondary">Découvrir ALTERA</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">ALTERA</div>
+            <p class="footer-tagline">Agence digitale premium</p>
+            <p class="footer-copyright">© 2025 ALTERA. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ============================================
+        // BACKGROUND ANIMÉ
+        // ============================================
+        const bgContainer = document.getElementById('animated-bg');
+        
+        // Création des étoiles fixes
+        function createStars(count) {
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                star.style.animationDuration = (3 + Math.random() * 3) + 's';
+                bgContainer.appendChild(star);
+            }
+        }
+
+        // Création des étoiles filantes
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.width = (50 + Math.random() * 100) + 'px';
+            star.style.height = '2px';
+            bgContainer.appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 3000);
+        }
+
+        // Initialisation
+        createStars(80);
+        
+        // Étoiles filantes aléatoires
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                createShootingStar();
+            }
+        }, 3000);
+
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ============================================
+        // SCROLL EFFECTS
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les cartes de pricing
+        document.querySelectorAll('.pricing-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
